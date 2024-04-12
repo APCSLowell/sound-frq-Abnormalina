@@ -18,11 +18,11 @@ public class Sound
     //returns total number of values changed. 
     int nums = 0;
   for(int i = 0; i < samples.length; i++){
-    if(samples[i] > 0 && samples[i] > limit){
+    if(samples[i] > limit){
       samples[i] = limit;
       nums++;
     }
-    else if(samples[i] < 0 && samples[i] < -limit){
+    else if(samples[i] < -limit){
       samples[i] = -limit;
       nums++;
     }
@@ -45,7 +45,8 @@ public class Sound
     }
     int[] newSamples = new int[samples.length - i];
     for(int k = 0; k < newSamples.length; i++){
-      newSamples[k] = samples[k+1];
+      newSamples[k] = samples[k+i];
     }
+    samples = newSamples;
   }
 }
